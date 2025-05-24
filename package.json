@@ -1,0 +1,30 @@
+{
+  "name": "hommage_api",
+  "version": "1.0.0",
+  "description": "API du projet Hommage",
+  "homepage": "https://github.com/didicodeX/Hommage_API#readme",
+  "bugs": {
+    "url": "https://github.com/didicodeX/Hommage_API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didicodeX/Hommage_API.git"
+  },
+  "license": "ISC",
+  "author": "didicode",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0",
+    "nodemon": "^3.1.10",
+    "stripe": "^18.1.1"
+  }
+}
