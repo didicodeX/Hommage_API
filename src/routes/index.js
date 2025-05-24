@@ -5,4 +5,8 @@ const router = Router();
 
 router.use("/donations", donationRoutes);
 
+router.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 export default router;
