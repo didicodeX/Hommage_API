@@ -1,3 +1,4 @@
+import * as service from "./donation.service.js";
 import Donation from "./donation.model.js";
 import Stripe from "stripe";
 
@@ -50,9 +51,33 @@ export const createDonation = async (req, res) => {
   }
 };
 
+export const getRecentDonors = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 5;
+    const donors = await service.fetchRecentDonorsService(limit);
+    res.json(donors);
+  } catch (err) {
+    console.error("Erreur récupération des donateurs :", err);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+};
+
+export const getDonationStats = async (req, res) => {
+  try {
+    const stats = await service.fetchStatsService();
+    res.json(stats);
+  } catch (err) {
+    console.error("Erreur stats dons :", err);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+};
+
 export const getAllDonations = async (req, res) => {
   try {
-    const donations = await Donation.find().sort({ createdAt: -1 });
+    const donations = await service.fetchAllDonationService();
+    if (!donations) {
+      return res.status(404).json({ message: "Aucune donation trouvée" });
+    }
     res.json(donations);
   } catch (error) {
     res.status(500).json({ message: "Erreur serveur", error: error.message });
