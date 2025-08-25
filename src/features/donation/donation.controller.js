@@ -11,6 +11,13 @@ export const createDonation = async (req, res) => {
     return res.status(400).json({ error: "Nom et montant obligatoires." });
   }
 
+  // Validation du montant
+  if (amount <= 0 || amount > 10000) {
+    return res
+      .status(400)
+      .json({ error: "Le montant doit être entre 1 et 10,000 CAD." });
+  }
+
   try {
     // 1. Enregistrer la donation temporairement
     const donation = await Donation.create({

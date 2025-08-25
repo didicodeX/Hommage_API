@@ -18,7 +18,7 @@ export const getDonationStats = async () => {
 
   const totalCount = await Donation.countDocuments({ status: "paid" });
 
-  const GOAL_AMOUNT = 1000; // Valeur cible fixe ou récupérée d'ailleurs
+  const GOAL_AMOUNT = process.env.GOAL_AMOUNT || 1000; // Récupéré depuis les variables d'environnement
 
   return {
     totalAmount: totalAmount[0]?.total || 0,

@@ -1,6 +1,12 @@
 import Donation from "../donation/donation.model.js";
 
-export const stripeWebhookHandler = async (req, res, stripe, sig, endpointSecret) => {
+export const stripeWebhookHandler = async (
+  req,
+  res,
+  stripe,
+  sig,
+  endpointSecret
+) => {
   let event;
 
   try {
@@ -32,7 +38,12 @@ export const stripeWebhookHandler = async (req, res, stripe, sig, endpointSecret
 
       console.log("🎉 Donation mise à jour avec succès");
     } catch (err) {
-      console.error("❌ Erreur lors de la mise à jour de la donation :", err.message);
+      console.error(
+        "❌ Erreur lors de la mise à jour de la donation :",
+        err.message
+      );
+      // En cas d'échec, on pourrait implémenter un système de retry ici
+      // ou marquer la donation pour traitement manuel
     }
   }
 
