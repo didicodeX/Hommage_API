@@ -35,7 +35,7 @@ export const createDonation = async (req, res) => {
           price_data: {
             currency: "cad",
             product_data: {
-              name: `Don en mémoire`,
+              name: `Don en mémoire de Papa Takam Robert`,
             },
             unit_amount: amount * 100,
           },
