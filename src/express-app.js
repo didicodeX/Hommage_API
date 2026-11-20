@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import routes from "./src/routes/index.js";
-import { stripeWebhookHandler } from "./src/features/webhooks/stripe.webhook.js";
+import routes from "./routes/index.js";
+import { stripeWebhookHandler } from "./features/webhooks/stripe.webhook.js";
 import Stripe from "stripe";
 
 const app = express();
